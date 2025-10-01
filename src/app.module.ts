@@ -5,6 +5,8 @@ import { RecipientModule } from './recipient/recipient.module';
 import { CardModule } from './card/card.module';
 import { SocialMediaModule } from './social-media/social-media.module';
 import { RecipientSocialModule } from './recipient-social/recipient-social.module';
+import { AdminModule } from './admin/admin.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -27,6 +29,8 @@ import { RecipientSocialModule } from './recipient-social/recipient-social.modul
     CardModule,
     SocialMediaModule,
     RecipientSocialModule,
+    AdminModule,
+    AuthModule,
   ],
 })
 export class AppModule {}
