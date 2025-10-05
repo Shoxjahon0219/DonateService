@@ -9,6 +9,7 @@ import {
 } from "sequelize-typescript";
 import { Category } from "../../category/models/category.model";
 import { Order } from "../../order/models/order.model";
+import { Recipient } from "../../recipient/models/recipient.model";
 
 interface IShopCreationAttr {
   name: string;
@@ -41,6 +42,7 @@ export class Shop extends Model<Shop, IShopCreationAttr> {
   @Column({ type: DataType.STRING, allowNull: false })
   declare title: string;
 
+  @ForeignKey(() => Recipient)
   @Column({ type: DataType.INTEGER, allowNull: false })
   declare recipient_id: number;
 
@@ -51,9 +53,12 @@ export class Shop extends Model<Shop, IShopCreationAttr> {
   @Column({ type: DataType.TEXT, allowNull: true })
   declare description: string;
 
+  @BelongsTo(() => Recipient)
+  declare recipient: Recipient;
+
   @BelongsTo(() => Category)
   declare category: Category;
 
-    @HasMany(() => Order)
-    declare orders: Order[];
+  @HasMany(() => Order)
+  declare orders: Order[];
 }

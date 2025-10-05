@@ -1,7 +1,6 @@
 import { Body, Controller, HttpCode, HttpStatus, Post } from "@nestjs/common";
 import { ApiTags, ApiOperation, ApiResponse } from "@nestjs/swagger";
 import { AuthService } from "./auth.service";
-import { CreateAdminDto } from "../admin/dto/create-admin.dto";
 import { SigninAdminDto } from "../admin/dto/signin-admin.dto";
 
 @ApiTags("Auth")

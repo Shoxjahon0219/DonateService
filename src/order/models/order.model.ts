@@ -7,6 +7,7 @@ import {
   Table,
 } from "sequelize-typescript";
 import { Shop } from "../../shop/model/shop.model";
+import { User } from "../../user/models/user.model";
 
 interface IOrderCreationAttr {
   sum: number;
@@ -31,6 +32,7 @@ export class Order extends Model<Order, IOrderCreationAttr> {
   @Column({ type: DataType.STRING, allowNull: false })
   declare location: string;
 
+  @ForeignKey(() => User)
   @Column({ type: DataType.INTEGER, allowNull: false })
   declare user_id: number;
 
@@ -38,12 +40,15 @@ export class Order extends Model<Order, IOrderCreationAttr> {
   @Column({ type: DataType.INTEGER, allowNull: false })
   declare shop_id: number;
 
-  @BelongsTo(() => Shop)
-  declare shop: Shop;
-
   @Column({
     type: DataType.ENUM("in_progres", "completed", "cancelled"),
     allowNull: false,
   })
   declare status: "pending" | "completed" | "cancelled";
+
+  @BelongsTo(() => Shop)
+  declare shop: Shop;
+
+  @BelongsTo(() => User)
+  declare user: User;
 }

@@ -12,9 +12,9 @@ import { RecipientService } from "./recipient.service";
 import { CreateRecipientDto } from "./dto/create-recipient.dto";
 import { ApiTags, ApiOperation, ApiResponse } from "@nestjs/swagger";
 import { Recipient } from "./models/recipient.model";
-import { JwtAuthGuard } from "../admin/common/guards/jwt-auth.guard";
-import { SelfGuard } from "../admin/common/guards/self.guard";
-import { AdminGuard } from "../admin/common/guards/admin.guard";
+import { JwtAuthGuard } from "../common/guards/jwt-auth.guard";
+import { SelfGuard } from "../common/guards/self.guard";
+import { AdminGuard } from "../common/guards/admin.guard";
 
 @ApiTags("Recipients")
 @Controller("recipients")

@@ -12,9 +12,9 @@ import { ApiTags, ApiOperation, ApiResponse } from "@nestjs/swagger";
 import { AdminService } from "./admin.service";
 import { CreateAdminDto } from "./dto/create-admin.dto";
 import { UpdateAdminDto } from "./dto/update-admin.dto";
-import { SelfGuard } from "./common/guards/self.guard";
-import { JwtAuthGuard } from "./common/guards/jwt-auth.guard";
-import { CreatorGuard } from "./common/guards/creator.guard";
+import { SelfGuard } from "../common/guards/self.guard";
+import { JwtAuthGuard } from "../common/guards/jwt-auth.guard";
+import { CreatorGuard } from "../common/guards/creator.guard";
 
 @ApiTags("Admin")
 @Controller("admin")
